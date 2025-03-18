@@ -1,17 +1,18 @@
 "use client"; // Error boundaries must be Client Components
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import ErrorDisplay from "./components/error-dispaly";
 
 export default function Error({ error, reset }) {
+  const [message, setMessage] = useState(null);
   useEffect(() => {
-    // Log the error to an error reporting service
+    setMessage(error.message);
     console.error("Error:", error);
   }, [error]);
 
   return (
     <>
-      <ErrorDisplay message={error?.message} reset={reset} />
+      <ErrorDisplay message={message} reset={reset} />
     </>
   );
 }
