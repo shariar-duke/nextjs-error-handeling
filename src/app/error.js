@@ -12,6 +12,7 @@ export default function Error({ error, reset }) {
 
   return (
     <>
+      <h1>App Page Error</h1>
       <ErrorDisplay message={message} reset={reset} />
     </>
   );
